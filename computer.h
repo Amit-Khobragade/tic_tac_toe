@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include "board.h"
 
 class vs_pc:board {
@@ -16,6 +18,6 @@ public:
 	}
 
 	virtual void print( std::ostream& os ) override;
-	void operator()( int x );
+	bool operator()( int x );
 	virtual ~vs_pc() = default;
 };
