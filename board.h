@@ -12,4 +12,5 @@ public:
 	friend std::ostream& operator<<( std::ostream&, board& );
 	virtual void print( std::ostream& );
 	virtual ~board() = default;
+
 };
