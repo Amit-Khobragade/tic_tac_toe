@@ -1,5 +1,6 @@
 #include <iostream>
 #include "board.h"
+#include <chrono>
 
 class vs_pc:board {
 private:
