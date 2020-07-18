@@ -11,3 +11,17 @@ bool board::set_value( int x, int y, char value ) {
 	check_board[x][y] = value;
 	return true;
 }
+
+
+std::ostream& operator<<( std::ostream& os, board& B ) {
+	B.print( os );
+	return os;
+}
+
+void board::print( std::ostream& os ) {
+	for (int i = 0; i < 3; ++i) {
+		for (int j = 0; j < 3; ++j)
+			os << check_board[i][j] << ((j < 2) ? "|" : "");
+		os << std::endl << "_|_|_" << std::endl;
+	}
+}
