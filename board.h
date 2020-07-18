@@ -11,6 +11,7 @@ public:
 	bool set_value( int x, int y, char value );
 	friend std::ostream& operator<<( std::ostream&, board& );
 	virtual void print( std::ostream& );
+	char find_winner();
 	virtual ~board() = default;
 
 };
