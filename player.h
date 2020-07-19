@@ -31,11 +31,12 @@ public:
 		}
 		return true;
 	}
+
 	bool computer_plays();
-	bool human_plays(int x,bool player_num);//the input player num must be 0 or 1
+	bool human_plays(int x,bool player_num);//the input player_num must be 0 or 1
 	virtual void print( std::ostream& os ) override;
 	
-	bool operator()(  );
+	bool operator()();
 	virtual ~player() = default; 
 	
 };
