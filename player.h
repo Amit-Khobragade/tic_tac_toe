@@ -1,4 +1,6 @@
 #include <iostream>
+#include <stdlib.h>
+#include <time.h>
 #include "board.h"
 
 
@@ -8,7 +10,7 @@ private:
 	char player_1, player_2;
 	int set[9][2];
 public:
-	player( char player_character, bool is_pc )
+	explicit player( char player_character, bool is_pc )  
 		:turn{ false }
 	{
 		for (int i = 0, int k = 0; i < 3; ++i)
@@ -22,11 +24,18 @@ public:
 		player_1 = player_character;
 		player_2 = ((player_character == 'X') ? 'O' : 'X');
 	}
-
+	inline bool check_size( int x ) {
+		if (x > 8 || x < 0) {
+			std::cerr << std::endl << "sorry wrong option please try again";
+			return false;
+		}
+		return true;
+	}
 	bool computer_plays();
-	bool human_plays();
+	bool human_plays(int x,bool player_num);//the input player num must be 0 or 1
 	virtual void print( std::ostream& os ) override;
-	bool operator()( int x );
+	
+	bool operator()(  );
 	virtual ~player() = default; 
 	
 };
