@@ -15,4 +15,6 @@ int main() {
 	while (is_pc != 'Y' && is_pc != 'N');
 	player p1{ ch,((is_pc == 'Y') ? true : false) };
 	while (!p1());
+	cout << endl;
+	system( "pause" );
 }
