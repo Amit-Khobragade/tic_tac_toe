@@ -1,7 +1,6 @@
 #include "player.h"
 
 
-
 bool player::computer_plays() {
 	int x;
 	do {

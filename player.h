@@ -25,6 +25,7 @@ public:
 		player_1 = player_character;
 		player_2 = ((player_character == 'X') ? 'O' : 'X');
 	}
+
 	inline bool check_size( int x ) {
 		if (x > 8 || x < 0) {
 			std::cerr << std::endl << "sorry wrong option please try again";
