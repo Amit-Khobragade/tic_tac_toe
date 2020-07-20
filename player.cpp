@@ -5,7 +5,7 @@
 bool player::computer_plays() {
 	int x;
 	do {
-		srand( time( 0 ) );
+		srand( static_cast<size_t>(time( 0 )) );
 		x = (rand() % 9);
 	}
 	while (!board::set_value( set[x][0], set[x][1], player_2 ));
@@ -19,9 +19,10 @@ bool player::computer_plays() {
 }
 
 bool player::human_plays( int x, bool player_num ) {
-	if (!check_size( x ))
+	x--;
+	if (!check_size( x  ))
 		return false;
-	char& p = ((player_num) ? player_1 : player_2);
+	char& p = ((player_num) ? player_2 : player_1);
 	std::cout << std::endl;
 	while (!board::set_value( set[x][0], set[x][1], p )) {
 		std::cout << "sorry place already taken please try again:\n " << *this;
@@ -33,10 +34,15 @@ bool player::human_plays( int x, bool player_num ) {
 	}
 	char temp = board::find_winner();
 	if (temp != NULL) {
-		std::cout << ">>>>>>>>>PLAYER" << ((player_num) ? "-1" : "-2") 
+		if (temp == 't') {
+			std::cout << ">>>>>>>>>>>>its a tie<<<<<<<<<<<<<<";
+			return true;
+		}
+		std::cout << ">>>>>>>>>PLAYER" << ((player_num) ? "-2" : "-1") 
 			<< " WINS<<<<<<<<<<<<<";
 		return true;
 	}
+	
 	turn = !turn;
 	return false;
 }
@@ -53,7 +59,7 @@ bool player::operator()() {
 		std::cout << *this << "\n player_1 enter an available spot: ";
 		std::cin >> choice;
 	}
-	while (!check_size( choice ));
+	while (!check_size( choice -1 ));
 	if (human_plays( choice, turn ))
 		return true;
 	if (is_pc) {
@@ -66,7 +72,7 @@ bool player::operator()() {
 			std::cout << *this << "\n player_2 enter an available spot: ";
 			std::cin >> choice;
 		}
-		while (!check_size( choice ));
+		while (!check_size( choice-1 ));
 		if (human_plays( choice, turn ))
 			return true;
 	}

@@ -13,7 +13,8 @@ public:
 	explicit player( char player_character, bool is_pc )  
 		:turn{ false }
 	{
-		for (int i = 0, int k = 0; i < 3; ++i)
+		int k = 0;
+		for (int i = 0 ; i < 3; ++i)
 			for (int j = 0; j < 3; ++j, ++k) {
 				set[k][0] = i;
 				set[k][1] = j;

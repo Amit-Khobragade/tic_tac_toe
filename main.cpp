@@ -12,7 +12,7 @@ int main() {
 		cout << "do you want the player 2 to be computer('Y'or 'N'): ";
 		cin >> is_pc;
 	}
-	while (is_pc != 'Y' || is_pc != 'N');
+	while (is_pc != 'Y' && is_pc != 'N');
 	player p1{ ch,((is_pc == 'Y') ? true : false) };
 	while (!p1());
 }

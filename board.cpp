@@ -22,6 +22,7 @@ void board::print( std::ostream& os ) {
 	for (int i = 0; i < 3; ++i) {
 		for (int j = 0; j < 3; ++j)
 			os << check_board[i][j] << ((j < 2) ? "|" : "");
+		if (i < 2)
 		os << std::endl << "_|_|_" << std::endl;
 	}
 }
@@ -43,5 +44,9 @@ char board::find_winner() {
 		return check_board[1][1];
 
 	//when no one wins
-	return NULL;
+	for (int i = 0; i < 3; ++i)
+		for (int j = 0; j < 3; ++j)
+			if (isdigit( check_board[i][j] ))
+				return NULL;
+	return 't';
 }
