@@ -1,7 +1,6 @@
 #pragma once
 #include <iostream>
 
-
 class board {
 private:
 	char check_board[3][3];
